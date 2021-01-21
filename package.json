@@ -1,13 +1,30 @@
 {
   "name": "react-use-auto-memo",
-  "version": "0.1.0",
-  "description": "",
-  "main": "src/index.ts",
-  "scripts": {
-    "test": "jest"
-  },
   "author": "Gøran Humlestøl",
   "license": "MIT",
+  "version": "0.1.0",
+  "description": "useMemo for objects and arrays with automatic dependencies",
+  "keywords": [
+    "react",
+    "memo",
+    "auto",
+    "hook",
+    "context",
+    "boilerplate"
+  ],
+  "repository": {
+    "url": "https://github.com/goransh/react-use-auto-memo"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "jest && tsc",
+    "prepublish": "jest && tsc"
+  },
   "peerDependencies": {
     "react": ">=16.8",
     "react-dom": ">=16.8"
