@@ -2,12 +2,9 @@
   "compilerOptions": {
     "outDir": "./dist",
     "declaration": true,
+    "downlevelIteration": true,
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -19,6 +16,7 @@
     "isolatedModules": true,
     "jsx": "react"
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "example"]
+  "include": ["src", "./node_modules/@types/jest"],
+  "exclude": ["node_modules", "example"],
+  "typeRoots": ["./node_modules/@types"]
 }

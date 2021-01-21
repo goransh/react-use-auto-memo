@@ -1,6 +1,6 @@
 import { useMemo, useRef } from "react";
 
-const devEnvironment = process.env.NODE_ENV === "development";
+const devOrTestEnv = process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test";
 
 export type AutoMemoable = Record<string, any> | Array<any>;
 
@@ -15,9 +15,9 @@ function getDeps(value: AutoMemoable) {
   );
 }
 
-function useAutoMemo<T extends AutoMemoable>(value: T) {
+function useAutoMemo<T extends AutoMemoable>(value: T): T {
   const deps = getDeps(value);
-  if (devEnvironment) {
+  if (devOrTestEnv) {
     const depsCount = useRef(deps.length);
     if (deps.length !== depsCount.current) {
       const valueType = `${value instanceof Array ? "array" : "object"}`;
